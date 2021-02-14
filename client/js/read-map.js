@@ -1,6 +1,6 @@
 async function getMap() {
     const options = {
-        method: "POST",
+        method: "GET",
         headers: { 'Content-Type': 'application/json' }
     };
 

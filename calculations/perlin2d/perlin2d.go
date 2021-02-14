@@ -11,7 +11,7 @@ type Vector2D struct {
 }
 
 func NewVector2D(x, y int) Vector2D {
-	return Vector2D{(float64)(x) + 0.4, (float64)(y) + 0.4}
+	return Vector2D{(float64)(x) + rand.Float64(), (float64)(y) + rand.Float64()}
 }
 
 const (

@@ -21,3 +21,4 @@ func StartingPage(rw http.ResponseWriter, _ *http.Request, _ httprouter.Params) 
 		http.Error(rw, err.Error(), 400)
 	}
 }
+

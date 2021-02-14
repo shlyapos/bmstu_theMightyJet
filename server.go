@@ -33,7 +33,7 @@ func (server *Server) setRoutes() {
 	server.router.ServeFiles("/public/*filepath", http.Dir("public"))
 
 	server.router.GET("/", controllers.StartingPage)
-	server.router.GET("/generate", controllers.GenerationPage)
+	server.router.POST("/generate", controllers.GenerationPage)
 }
 
 func main() {

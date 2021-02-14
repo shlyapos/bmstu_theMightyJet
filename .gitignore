@@ -19,6 +19,9 @@
 # Extra directories of GoLand
 .idea/
 
+# For dolboyob Epsilonbolee0
+%SystemDrive%/
+
 # Dependency directories (remove the comment below to include it)
 # vendor/
 

@@ -3,15 +3,16 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/julienschmidt/httprouter"
 	"net/http"
 	"strconv"
+
+	"github.com/julienschmidt/httprouter"
 
 	"./controllers"
 )
 
 type Server struct {
-	port int
+	port   int
 	router *httprouter.Router
 }
 
@@ -23,14 +24,14 @@ func startServer(port int) {
 
 	fmt.Println("Поехали, ковбой!")
 
-	err := http.ListenAndServe("localhost:" + strconv.Itoa(server.port), server.router)
+	err := http.ListenAndServe("localhost:"+strconv.Itoa(server.port), server.router)
 	if err != nil {
 		panic(err)
 	}
 }
 
 func (server *Server) setRoutes() {
-	server.router.ServeFiles("/public/*filepath", http.Dir("public"))
+	server.router.ServeFiles("/client/*filepath", http.Dir("client"))
 
 	server.router.GET("/", controllers.StartingPage)
 	server.router.GET("/generate", controllers.GenerationPage)

@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/julienschmidt/httprouter"
 	"flag"
+	"fmt"
+	"github.com/julienschmidt/httprouter"
 	"net/http"
 	"strconv"
 
@@ -19,6 +20,8 @@ func startServer(port int) {
 	server.port = port
 	server.router = httprouter.New()
 	server.setRoutes()
+
+	fmt.Println("Поехали, ковбой!")
 
 	err := http.ListenAndServe("localhost:" + strconv.Itoa(server.port), server.router)
 	if err != nil {

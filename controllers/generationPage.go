@@ -15,8 +15,10 @@ func GenerationPage(rw http.ResponseWriter, _ *http.Request, _ httprouter.Params
 		http.Error(rw, err.Error(), 400)
 		return
 	}
-
 	landscape.PerlinNoiseGeneration(50, 3, 0.5)
+
+	header := rw.Header()
+	header.Set("Content-Type", "application/json")
 
 	err = json.NewEncoder(rw).Encode(landscape)
 	if err != nil {

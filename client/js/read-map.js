@@ -1,6 +1,6 @@
-function getMap() {
+async function getMap() {
     const options = {
-        method: "GET",
+        method: "POST",
         headers: { 'Content-Type': 'application/json' }
     };
 
@@ -11,19 +11,10 @@ function getMap() {
     });
 }
 
-getMap().then(response => console.log(response.json()))
-        .catch(error => console.log(error.message));
 
-/*
+getMap()
+    .then(response => response.json())
+    .catch(error => console.log(error.message))
+        .then(map => console.log(map))
 
-const request = new XMLHttpRequest();
-const url = "/generate";
-//request.responseType = "json";
-request.open("GET", url, true);
-// request.setRequestHeader('Destination', 'localhost:4444');
 
-request.send();
-
-console.log(request);
-console.log(request.responseText);
-*/
